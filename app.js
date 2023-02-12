@@ -33,14 +33,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Express Session
-app.use(
-  session({
-    name: "session-id",
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-  })
-);
+// app.use(
+//   session({
+//     name: "session-id",
+//     secret: process.env.SESSION_SECRET,
+//     resave: true,
+//     saveUninitialized: true,
+//   })
+// );
 
 BASE_URL = "/api/v1";
 app.use(BASE_URL + "/", require("./routes/index"));
