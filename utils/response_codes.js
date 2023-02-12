@@ -31,7 +31,7 @@ module.exports = {
   MESSAGE_BEARER_TOKEN_IS_REQUIRED: "Authorization must be a Bearer Token",
   MESSAGE_TOKEN_INVALID: "Unauthorized Access - Token Invalid",
   MESSAGE_ROLE_NOT_ALLOWED: "Role not allowed",
-
+  MESSAGE_USER_RISTRICTED: "user is ristricted",
   // - SERVER ERRORS BLOCK
   MESSAGE_RESPONSE_INTERNAL_SERVER_ERROR: "Something Went Wrong",
 
@@ -39,6 +39,7 @@ module.exports = {
   MESSAGE_MISSING_PARAMETERS: "Some Paramters are missing: ", // When using it please concat missing parameters names :3
   MESSAGE_INVALID_PARAMETERS: "Invalid Parameter: ", // When using it please concat which param is wrong ;b
   MESSAGE_ERROR_WHILE_UPLOADING_IMAGE: "Error while uploading image",
+  MESSAGE_DUPLICATE_VALUE : "is already taken please use some other value",
   
   // - USER BLOCK
   MESSAGE_USER_ALREADY_EXISTS: "User already exists with: ",

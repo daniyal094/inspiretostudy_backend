@@ -3,10 +3,10 @@
 module.exports = {
     // USER CONSTANTS
     EMAIL_ADDRESS: "email_address",
-    ROLES: ['user', 'admin'],
+    ROLES: ['user', 'admin','consultant'],
     USER: 'user',
     ADMIN: 'admin',
-    
+    CONSULTANT : 'consultant',
     // COMMON CONSTANTS
     ID: "id",
     NAME: "name",

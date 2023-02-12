@@ -14,7 +14,6 @@ const response_codes = require('../utils/response_codes');
 
 verify_token = async (req, res, next) => {
     let bearer_token = req.headers["authorization"];
-
     if (!bearer_token) {
         return res.status(response_codes.CODE_FORBIDDEN).send(
             common_utils.response_generator(

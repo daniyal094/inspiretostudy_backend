@@ -9,7 +9,7 @@ var router = express.Router();
 var common_utils = require("../utils/common_utils");
 var constants = require("../utils/constants");
 var our_teams_controller = require('../controller/our_teams_controller');
-var project_controller = require('../controller/project_controller');
+var packages_controller = require('../controller/packages_controller');
 const response_codes = require('../utils/response_codes');
 
 
@@ -28,7 +28,7 @@ const home_featured = async (req, res, next) => {
     ));
   }
 
-  var [ project, response_code, response_message ] = await project_controller.featured_project_controller({});
+  var [ packages, response_code, response_message ] = await packages_controller.featured_packages_controller({});
   if (response_code != response_codes.CODE_RESPONSE_SUCCESS) {
     return res.status(response_code).send(common_utils.response_generator(
       response_code, 
@@ -39,7 +39,7 @@ const home_featured = async (req, res, next) => {
   return res.status(response_code).send(common_utils.response_generator(
     response_code, 
     response_message, 
-    response_data={our_team, project}
+    response_data={our_team, packages}
   ));
 }
 

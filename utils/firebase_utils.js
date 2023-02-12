@@ -9,36 +9,32 @@ var admin = require("firebase-admin");
 /* Local Imports */
 
 var firebase_creds = {
-  type: process.env.type,
-  project_id: process.env.project_id,
-  private_key_id: process.env.private_key_id,
-  private_key: process.env.private_key,
-  client_email: process.env.client_email,
-  client_id: process.env.client_id,
-  auth_uri: process.env.auth_uri,
-  token_uri: process.env.token_uri,
-  auth_provider_x509_cert_url: process.env.auth_provider_x509_cert_url,
-  client_x509_cert_url: process.env.client_x509_cert_url
-}
+  apiKey: "AIzaSyBBx1jz701hqdbEZNe5j6CwR-bCzqNW9Rw",
+  authDomain: "inspiretostudy-a40ed.firebaseapp.com",
+  projectId: "inspiretostudy-a40ed",
+  storageBucket: "inspiretostudy-a40ed.appspot.com",
+  messagingSenderId: "1012418849639",
+  appId: "1=1012418849639=web=7d6219ebd941d28b589dc2",
+  measurementId: "G-B2TGTJZ436",
+};
 
-admin.initializeApp({
-  credential: admin.credential.cert(firebase_creds),
-  storageBucket: `${firebase_creds.project_id}.appspot.com`
-});
+admin.initializeApp(firebase_creds);
 
 const bucket = admin.storage().bucket();
 
 uploadImage = async (images) => {
-  var images_urls = []
-  var promises = []
+  var images_urls = [];
+  var promises = [];
 
   await images.map(async (image) => {
-    const filename = `${Date.now()}_${Math.random() * 10000}${path.extname(image.originalname)}`;
-    var imageRef = bucket.file('images/'+filename, {
+    const filename = `${Date.now()}_${Math.random() * 10000}${path.extname(
+      image.originalname
+    )}`;
+    var imageRef = bucket.file("images/" + filename, {
       public: true,
       metadata: {
-        contentType: image.mimetype
-      }
+        contentType: image.mimetype,
+      },
     });
     promises.push(
       imageRef.save(image.buffer, (err) => {
@@ -53,8 +49,8 @@ uploadImage = async (images) => {
   });
   await Promise.all(promises);
   return images_urls;
-}
+};
 
 module.exports = {
-  uploadImage
-}
+  uploadImage,
+};
