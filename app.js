@@ -17,6 +17,10 @@ const response_codes = require("./utils/response_codes");
 
 var app = express();
 
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
 mongoose.connect(mongodb_url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
