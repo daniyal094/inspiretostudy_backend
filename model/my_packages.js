@@ -9,10 +9,19 @@ const my_packages_model = new mongoose.Schema({
   user_id: {
     type: String,
   },
+  username: {
+    type: String,
+  },
   package_id: {
     type: String,
   },
+  package_name: {
+    type: String,
+  },
   consultant_id: {
+    type: String,
+  },
+  consultant_name: {
     type: String,
   },
   link: {

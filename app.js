@@ -6,7 +6,7 @@ var cookieParser = require("cookie-parser");
 /* Framework Imports */
 var logger = require("morgan");
 var express = require("express");
-var session = require("express-session");
+// var session = require("express-session");
 var mongoose = require("mongoose");
 var cors = require("cors");
 
