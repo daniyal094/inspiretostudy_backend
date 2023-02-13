@@ -145,6 +145,16 @@ read_users_controller = async (filter_data) => {
   ];
 };
 
+// Read All Consultant
+read_all_consultant_controller = async () => {
+  const users = await user_model.find({role : 'consultant'});
+  return [
+    user_utils.filter_multiple_user_object(users),
+    response_codes.CODE_RESPONSE_SUCCESS,
+    response_codes.MESSAGE_RESPONSE_SUCCESS,
+  ];
+}
+
 /* Update Operations */
 update_user_controller = async (filter_params, filter_body) => {
   if (!common_utils.validate_id(filter_params.id))
@@ -213,4 +223,5 @@ module.exports = {
   remove_user_controller,
   update_user_controller,
   create_user_controller,
+  read_all_consultant_controller
 };

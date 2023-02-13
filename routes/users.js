@@ -71,6 +71,34 @@ router.get(
   }
 );
 
+// Get All Consultant
+
+const fetch_all_consultant = async (req, res, next) => {
+  const [users, response_code, response_message] =
+    await user_controller.read_all_consultant_controller();
+  if (response_code != response_codes.CODE_RESPONSE_SUCCESS) {
+    return res
+      .status(response_code)
+      .send(common_utils.response_generator(response_code, response_message));
+  }
+  return res
+    .status(response_code)
+    .send(
+      common_utils.response_generator(
+        response_code,
+        response_message,
+        (response_data = { users })
+      )
+    );
+};
+
+router.get(
+  "/allconsultant",
+  async (req, res, next) => {
+    await common_utils.api_error_handler(req, res, next, fetch_all_consultant);
+  }
+);
+
 // GET single User
 const fetch_single_user = async (req, res, next) => {
   const [user, response_code, response_message] =
