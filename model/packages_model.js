@@ -18,6 +18,9 @@ const packages_model = new mongoose.Schema({
     type: String,
     required: true,
   },
+  consultant: {
+    type: String,
+  },
   price: {
     type: Number,
     required: true,

@@ -14,6 +14,7 @@ filter_multiple_package_object = (packages) => {
       name: package.name,
       full_description: package.full_description,
       teacher: package.teacher,
+      consultant: package.consultant,
       price: package.price,
       promotion: package.promotion,
       serviceterms: package.serviceterms,
@@ -35,6 +36,7 @@ filter_package_object = (package) => {
     name: package.name,
     full_description: package.full_description,
     teacher: package.teacher,
+    consultant: package.consultant,
     price: package.price,
     promotion: package.promotion,
     serviceterms: package.serviceterms,
@@ -53,6 +55,7 @@ package_validation = async (data) => {
     teacher: Joi.string().required(),
     price: Joi.number().required(),
     promotion: Joi.string(),
+    consultant: Joi.string(),
     serviceterms: Joi.string(),
     frequency: Joi.string().required(),
     groupSize: Joi.number().required(),
@@ -65,13 +68,17 @@ package_validation = async (data) => {
 
 package_update_validation = async (data) => {
   const schema = Joi.object({
-    name: Joi.string().min(3).max(30),
-    short_description: Joi.string().max(100),
-    full_description: Joi.string(),
-    titled_image: Joi.string().uri(),
-    gallery: Joi.array().items(Joi.string().uri()).min(1),
-    banner_video: Joi.string().uri(),
-    rating: Joi.number().min(0).default(0),
+    name: Joi.string().min(3).max(30).required(),
+    full_description: Joi.string().required(),
+    teacher: Joi.string().required(),
+    price: Joi.number().required(),
+    promotion: Joi.string(),
+    consultant: Joi.string(),
+    serviceterms: Joi.string(),
+    frequency: Joi.string().required(),
+    groupSize: Joi.number().required(),
+    freeResources: Joi.string(),
+    status: Joi.boolean(),
   });
   return schema.validate(data);
 };

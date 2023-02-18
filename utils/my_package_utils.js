@@ -9,8 +9,12 @@ filter_multiple_my_package_object = (packages) => {
     package_array.push({
       id: package._id,
       user_id: package.user_id,
+      username: package.username,
       package_id: package.package_id,
+      package_id: package.package_id,
+      package_name: package.package_name,
       consultant_id: package.consultant_id,
+      consultant_name : package.consultant_name,
       link: package.link,
       complete: package.complete,
       remarks: package.remarks,
